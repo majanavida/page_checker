@@ -37,8 +37,6 @@ async def process_screenshot(message: Message):
                                 caption=f'Скриншот страницы {message.text}')
         os.remove(filename)
     except pyppeteer.errors.NetworkError:
-        await message.answer('Пришлите полную ссылку (начинается с http:// '
-                             'или https://).')
+        await message.answer(text=LEXICON_RU['NetworkError'])
     except pyppeteer.errors.PageError:
-        await message.answer('Не удалось перейти на страницу. Возможно сайт '
-                             'не доступен в России.')
+        await message.answer(text=LEXICON_RU['PageError'])
